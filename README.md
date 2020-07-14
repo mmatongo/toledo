@@ -34,8 +34,6 @@ git clone
 https://github.com/mmatongo/toledo.git
 ```
 
-*
-
 ``` .
 # Inside your .bashrc, .zshrc, etc.
 . /path/to/toledo
