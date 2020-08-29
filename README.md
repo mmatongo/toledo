@@ -30,8 +30,7 @@ A fast and extremely minimal shell prompt with git tracking.
 **Manual**
 
 ```
-git clone 
-https://github.com/mmatongo/toledo.git
+git clone https://github.com/mmatongo/toledo.git
 ```
 
 ``` .
