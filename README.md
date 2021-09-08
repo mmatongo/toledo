@@ -8,6 +8,7 @@ A fast and extremely minimal shell prompt with git tracking.
 - Minimal
 - Lightweight
 - Works on `BASH`, `ZSH`, `DASH`, `YASH`. Sorry `ASH`.
+- Works on macOS but you need `oh-my-zsh` installed.
 
 ## Table of Contents
 
