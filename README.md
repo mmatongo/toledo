@@ -47,3 +47,32 @@ You can customize the prompt character by modifying the lambda `λ` sign on line
 ```
 export PS1="\$(parse_git_dirty) λ "
 ```
+
+
+## Screenshots
+
+#### Initial Screen
+![init](./img/1.png)
+
+
+#### Untracked File [`?`]
+![untracked](./img/2.png)
+
+#### Modified File [`*`]
+![modified](./img/3.png)
+
+#### Renamed File [`~`]
+![renamed](./img/4.png)
+
+## Git Prompts
+Toledo has other git prompts such as;
+
+[`!`] Branch is ahead.
+[`+`] New file Added.
+[`-`] File has been deleted.
+
+
+## MISC recommendations
+As is `toledo` is pretty functional and can be used as your daily shell prompt,
+however if you want extra functionality consider using it alongside `oh-my-zsh`
+or anything similar.
