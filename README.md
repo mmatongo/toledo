@@ -64,11 +64,16 @@ export PS1="\$(parse_git_dirty) λ "
 #### Renamed File [`~`]
 ![renamed](./img/4.png)
 
+#### Switch Branch
+![branch](./img/5.png)
+
 ## Git Prompts
 Toledo has other git prompts such as;
 
 [`!`] Branch is ahead.
+<br>
 [`+`] New file Added.
+<br>
 [`-`] File has been deleted.
 
 
