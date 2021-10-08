@@ -67,14 +67,16 @@ export PS1="\$(parse_git_dirty) λ "
 #### Switch Branch
 ![branch](./img/5.png)
 
+#### Deleted File
+![branch](./img/6.png)
+
+
 ## Git Prompts
 Toledo has other git prompts such as;
 
 [`!`] Branch is ahead.
 <br>
 [`+`] New file Added.
-<br>
-[`-`] File has been deleted.
 
 
 ## MISC recommendations
