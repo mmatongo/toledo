@@ -18,7 +18,7 @@ purple='\033[0;35m'       # purple
 reset='\e[0m'             # reset
 
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e 's/* \(.*\)/ [ \1 ]/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' 
 }
 
 export_ps1() {
