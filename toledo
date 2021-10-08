@@ -4,14 +4,14 @@ function parse_git_dirty {
   if echo ${STATUS} | grep -c "renamed:"         &> /dev/null; then printf "~"; else printf ""; fi
   if echo ${STATUS} | grep -c "branch is ahead:" &> /dev/null; then printf "${purple}!${purple}${reset}"; else printf ""; fi
   if echo ${STATUS} | grep -c "new file::"       &> /dev/null; then printf "${blue}+${blue}${reset}"; else printf ""; fi
-  if echo ${STATUS} | grep -c "Untracked files:" &> /dev/null; then printf "${green}?${green}${reset}"; else printf ""; fi
+  if echo ${STATUS} | grep -c "Untracked files:" &> /dev/null; then printf "${cyan}?${cyan}${reset}"; else printf ""; fi
   if echo ${STATUS} | grep -c "modified:"        &> /dev/null; then printf "${yellow}*${yellow}${reset}"; else printf ""; fi
   if echo ${STATUS} | grep -c "deleted:"         &> /dev/null; then printf "${red}-${red}${reset}"; else printf ""; fi
 }
 
 # export the colours
 red='\033[0;31m'          # Red
-green='\033[0;32m'        # Green
+cyan='\033[0;96m'         # Cyan
 yellow='\033[0;92m'       # Yellow (not really)
 blue='\033[0;34m'         # Blue
 purple='\033[0;35m'       # purple
