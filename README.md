@@ -2,6 +2,10 @@
 
 A fast and extremely minimal shell prompt with git tracking.
 
+<p align="center">
+  <img src="img/0.png" alt="toledo" width="450px"  />
+</p>
+
 ## Features
 
 - Fast
