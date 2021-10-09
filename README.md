@@ -64,11 +64,12 @@ export PS1="\$(parse_git_dirty) λ "
 #### Renamed File [`~`]
 ![renamed](./img/4.png)
 
-#### Switch Branch
+#### Deleted File
 ![branch](./img/5.png)
 
-#### Deleted File
+#### Switch Branch
 ![branch](./img/6.png)
+
 
 
 ## Git Prompts
