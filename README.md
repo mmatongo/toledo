@@ -1,6 +1,8 @@
 # :package: toledo
 
-A fast and extremely minimal shell prompt with git tracking.
+<h2 align="center">
+  A fast and extremely minimal shell prompt with git tracking.
+</h2>
 
 <p align="center">
   <img src="img/0.png" alt="toledo" width="450px"  />
