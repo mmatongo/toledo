@@ -48,7 +48,7 @@ git clone https://github.com/mmatongo/toledo.git
 
 ## Prompt Character
 
-You can customize the prompt character by modifying the lambda `λ` sign on line [25](https://github.com/mmatongo/toledo/blob/master/toledo#L25) .
+You can customize the prompt character by modifying the lambda `λ` sign on line [24](https://github.com/mmatongo/toledo/blob/master/toledo#L24) .
 
 ```
 export PS1="\$(parse_git_branch) \$(parse_git_dirty) λ "
