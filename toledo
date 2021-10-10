@@ -1,12 +1,11 @@
-# get current status of git repo
-function parse_git_dirty {
+parse_git_dirty() {
   STATUS="$(git status 2> /dev/null)"
-  if echo ${STATUS} | grep -c "renamed:"         &> /dev/null; then printf "~"; else printf ""; fi
-  if echo ${STATUS} | grep -c "branch is ahead:" &> /dev/null; then printf "${purple}!${reset}"; else printf ""; fi
-  if echo ${STATUS} | grep -c "new file:"       &> /dev/null; then printf "${blue}+${reset}"; else printf ""; fi
-  if echo ${STATUS} | grep -c "Untracked files:" &> /dev/null; then printf "${cyan}?${reset}"; else printf ""; fi
-  if echo ${STATUS} | grep -c "modified:"        &> /dev/null; then printf "${yellow}*${reset}"; else printf ""; fi
-  if echo ${STATUS} | grep -c "deleted:"         &> /dev/null; then printf "${red}-${reset}"; else printf ""; fi
+  if [[ "${STATUS}" = *"renamed:"* ]]; then printf "${cyan}?${reset}"; else printf ""; fi
+  if [[ "${STATUS}" = *"branch is ahead:"* ]]; then printf "${cyan}?${reset}"; else printf ""; fi
+  if [[ "${STATUS}" = *"new file:"* ]]; then printf "${blue}+${reset}"; else printf ""; fi
+  if [[ "${STATUS}" = *"Untracked files"* ]]; then printf "${cyan}?${reset}"; else printf ""; fi
+  if [[ "${STATUS}" = *"modified:"* ]]; then printf "${yellow}*${reset}"; else printf ""; fi
+  if [[ "${STATUS}" = *"deleted:"* ]];  then printf "${red}-${reset}"; else printf ""; fi
 }
 
 # export the colours
@@ -14,7 +13,6 @@ red='\033[0;31m'          # Red
 cyan='\033[0;96m'         # Cyan
 yellow='\033[0;92m'       # Yellow (not really)
 blue='\033[0;34m'         # Blue
-purple='\033[0;35m'       # purple
 reset='\e[0m'             # reset
 
 parse_git_branch() {
