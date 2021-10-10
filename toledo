@@ -1,7 +1,7 @@
 parse_git_dirty() {
   STATUS="$(git status 2> /dev/null)"
-  if [[ "${STATUS}" = *"renamed:"* ]]; then printf "${cyan}?${reset}"; else printf ""; fi
-  if [[ "${STATUS}" = *"branch is ahead:"* ]]; then printf "${cyan}?${reset}"; else printf ""; fi
+  if [[ "${STATUS}" = *"renamed:"* ]]; then printf "${cyan}~${reset}"; else printf ""; fi
+  if [[ "${STATUS}" = *"branch is ahead:"* ]]; then printf "${purple}!${reset}"; else printf ""; fi
   if [[ "${STATUS}" = *"new file:"* ]]; then printf "${blue}+${reset}"; else printf ""; fi
   if [[ "${STATUS}" = *"Untracked files"* ]]; then printf "${cyan}?${reset}"; else printf ""; fi
   if [[ "${STATUS}" = *"modified:"* ]]; then printf "${yellow}*${reset}"; else printf ""; fi
@@ -14,6 +14,7 @@ cyan='\033[0;96m'         # Cyan
 yellow='\033[0;92m'       # Yellow (not really)
 blue='\033[0;34m'         # Blue
 reset='\e[0m'             # reset
+purple='\033[0;35m'       # purple
 
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
