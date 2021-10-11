@@ -1,11 +1,11 @@
 parse_git_dirty() {
   STATUS="$(git status 2> /dev/null)"
-  if [[ "${STATUS}" = *"renamed:"* ]]; then printf "${cyan}~${reset}"; else printf ""; fi
-  if [[ "${STATUS}" = *"branch is ahead:"* ]]; then printf "${purple}!${reset}"; else printf ""; fi
-  if [[ "${STATUS}" = *"new file:"* ]]; then printf "${blue}+${reset}"; else printf ""; fi
-  if [[ "${STATUS}" = *"Untracked files"* ]]; then printf "${cyan}?${reset}"; else printf ""; fi
-  if [[ "${STATUS}" = *"modified:"* ]]; then printf "${yellow}*${reset}"; else printf ""; fi
-  if [[ "${STATUS}" = *"deleted:"* ]];  then printf "${red}-${reset}"; else printf ""; fi
+  case "$STATUS" in *"renamed"*) printf "${cyan}~${reset}"; ;; esac
+  case "$STATUS" in *"branch is ahead"*) printf "${purple}!${reset}"; ;; esac
+  case "$STATUS" in *"new file"*) printf "${blue}+${reset}"; ;; esac
+  case "$STATUS" in *"Untracked files"*) printf "${cyan}?${reset}"; ;; esac
+  case "$STATUS" in *"modified"*) printf "${yellow}*${reset}"; ;; esac
+  case "$STATUS" in *"deleted"*) printf "${red}-${reset}"; ;; esac
 }
 
 # export the colours
