@@ -70,20 +70,17 @@ export PS1="\$(parse_git_branch) \$(parse_git_dirty) λ "
 #### Renamed File [`~`]
 ![renamed](./img/4.png)
 
-#### Deleted File
-![branch](./img/5.png)
+#### Deleted File [`-`]
+![deleted](./img/5.png)
 
 #### Switch Branch
-![branch](./img/6.png)
+![switch](./img/6.png)
 
+#### Branch is ahead [`!`]
+![ahead](./img/7.png)
 
-
-## Git Prompts
-Toledo has other git prompts such as;
-
-[`!`] Branch is ahead.
-<br>
-[`+`] New file Added.
+#### New file Added [`+`]
+![new](./img/8.png)
 
 
 ## MISC recommendations
