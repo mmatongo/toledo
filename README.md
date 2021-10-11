@@ -10,11 +10,12 @@
 
 ## Features
 
-- Fast
-- Minimal
-- Lightweight
+- Fast.
+- Minimal.
+- Lightweight.
 - Works on `BASH`, `ZSH`, `DASH`, `YASH`. Sorry `ASH`.
 - Works on macOS but you need `oh-my-zsh` installed.
+- POSIX compliant (to a certain extent).
 
 ## Table of Contents
 
