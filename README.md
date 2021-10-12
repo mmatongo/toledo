@@ -83,6 +83,8 @@ export PS1="\$(parse_git_branch) \$(parse_git_dirty) λ "
 #### New file Added [`+`]
 ![new](./img/8.png)
 
+#### Branch is behind [`ˬˬ`]
+![behind](./img/9.png)
 
 ## MISC recommendations
 As is `toledo` is pretty functional and can be used as your daily shell prompt,

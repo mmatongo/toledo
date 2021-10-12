@@ -6,6 +6,7 @@ parse_git_dirty() {
   case "$STATUS" in *"Untracked files"*) printf "${cyan}?${reset}"; ;; esac
   case "$STATUS" in *"modified"*) printf "${yellow}*${reset}"; ;; esac
   case "$STATUS" in *"deleted"*) printf "${red}-${reset}"; ;; esac
+  case "$STATUS" in *"branch is behind"*) printf "${red}ˬˬ${reset}"; ;; esac
 }
 
 # export the colours
