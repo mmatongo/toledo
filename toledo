@@ -1,13 +1,39 @@
+# simple is not always best
+
+# parse_git_dirty() {
+#   STATUS="$(git status 2> /dev/null)"
+#   case "$STATUS" in *"renamed"*) printf "${cyan}~${reset}"; ;; esac
+#   case "$STATUS" in *"branch is ahead"*) printf "${purple}!${reset}"; ;; esac
+#   case "$STATUS" in *"new file"*) printf "${blue}+${reset}"; ;; esac
+#   case "$STATUS" in *"Untracked files"*) printf "${cyan}?${reset}"; ;; esac
+#   case "$STATUS" in *"modified"*) printf "${yellow}*${reset}"; ;; esac
+#   case "$STATUS" in *"deleted"*) printf "${red}-${reset}"; ;; esac
+#   case "$STATUS" in *"branch is behind"*) printf "${red}ˬˬ${reset}"; ;; esac
+# }
+
+# refactor above function
 parse_git_dirty() {
-  STATUS="$(git status 2> /dev/null)"
-  case "$STATUS" in *"renamed"*) printf "${cyan}~${reset}"; ;; esac
-  case "$STATUS" in *"branch is ahead"*) printf "${purple}!${reset}"; ;; esac
-  case "$STATUS" in *"new file"*) printf "${blue}+${reset}"; ;; esac
-  case "$STATUS" in *"Untracked files"*) printf "${cyan}?${reset}"; ;; esac
-  case "$STATUS" in *"modified"*) printf "${yellow}*${reset}"; ;; esac
-  case "$STATUS" in *"deleted"*) printf "${red}-${reset}"; ;; esac
-  case "$STATUS" in *"branch is behind"*) printf "${red}ˬˬ${reset}"; ;; esac
+  for STATUS in $(git status 2> /dev/null | sed -e 's/^# / /' -e 's/^#\t/ /' | cut -d ' ' -f 1); do
+    case "$STATUS" in
+      *"renamed"*) printf "${cyan}~${reset}"; ;;
+      *"ahead"*) printf "${purple}!${reset}"; ;;
+      *"new file"*) printf "${blue}+${reset}"; ;;
+      *"Untracked files"*) printf "${cyan}?${reset}"; ;;
+      *"modified"*) printf "${yellow}*${reset}"; ;;
+      *"deleted"*) printf "${red}-${reset}"; ;;
+      *"behind"*) printf "${red}ˬˬ${reset}"; ;;
+    esac
+  done
 }
+
+# create some helpful aliases
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit -m'
+alias gp='git push'
+alias gcb='git checkout -b'
+alias gco='git checkout'
+alias gf='git fetch'
 
 # export the colours
 red='\033[0;31m'          # Red
