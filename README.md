@@ -59,12 +59,19 @@ export PS1="\$(parse_git_branch) \$(parse_git_dirty) λ "
 ### The script also includes several useful Git aliases:
 
 `gs`: `git status`
+
 `gd`: `git diff`
+
 `gc`: `git commit -m`
+
 `gp`: `git push`
+
 `gcb`:`git checkout -b`
+
 `gco`: `git checkout`
+
 `gf`: `git fetch`
+
 `gcl`: `clone_repo (an alias for git clone)`
 
 ###
