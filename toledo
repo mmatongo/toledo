@@ -1,16 +1,3 @@
-# simple is not always best
-
-# parse_git_dirty() {
-#   STATUS="$(git status 2> /dev/null)"
-#   case "$STATUS" in *"renamed"*) printf "${cyan}~${reset}"; ;; esac
-#   case "$STATUS" in *"branch is ahead"*) printf "${purple}!${reset}"; ;; esac
-#   case "$STATUS" in *"new file"*) printf "${blue}+${reset}"; ;; esac
-#   case "$STATUS" in *"Untracked files"*) printf "${cyan}?${reset}"; ;; esac
-#   case "$STATUS" in *"modified"*) printf "${yellow}*${reset}"; ;; esac
-#   case "$STATUS" in *"deleted"*) printf "${red}-${reset}"; ;; esac
-#   case "$STATUS" in *"branch is behind"*) printf "${red}ˬˬ${reset}"; ;; esac
-# }
-
 # refactor above function
 parse_git_dirty() {
   for STATUS in $(git status 2> /dev/null | sed -e 's/^# / /' -e 's/^#\t/ /' | cut -d ' ' -f 1); do
@@ -26,6 +13,27 @@ parse_git_dirty() {
   done
 }
 
+# create some helpful functions
+clone_repo() {
+  username=$1
+  repo_name=$2
+  dir_name=${3:-$repo_name}
+  provider="https://github.com/${username}/${repo_name}.git"
+
+  if [[ $4 == "-gl" ]]; then
+    provider="https://gitlab.com/${username}/${repo_name}.git"
+  fi
+
+  git ls-remote --exit-code --heads $provider &> /dev/null
+  if [ $? -ne 0 ]; then
+    echo "Repository not found on GitHub."
+    echo "Usage: gcl <username> <repo_name> [<dir_name>] [-gh | -gl]"
+    return 1
+  fi
+
+  git clone $provider $dir_name
+}
+
 # create some helpful aliases
 alias gs='git status'
 alias gd='git diff'
@@ -34,6 +42,9 @@ alias gp='git push'
 alias gcb='git checkout -b'
 alias gco='git checkout'
 alias gf='git fetch'
+
+# some useful aliases
+alias gcl=clone_repo
 
 # export the colours
 red='\033[0;31m'          # Red
