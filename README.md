@@ -79,10 +79,10 @@ export PS1="\$(parse_git_branch) \$(parse_git_dirty) λ "
 #### `clone_repo` usage
 
 ```sh
-gcl <username> <repo_name> [<dir_name>] [-gh | -gl]
+gcl <user_name> <repo_name> [<dir_name>] [-gh | -gl]
 ```
 
-- <username>: the GitHub or GitLab username that owns the repository.
+- <user_name>: the GitHub or GitLab username that owns the repository.
 - <repo_name>: the name of the repository.
 - <dir_name> (optional): the name of the directory where the repository will be cloned. If not provided, it will use the name of the repository.
   -gh or -gl (optional): specify whether to clone from GitHub (-gh) or GitLab (-gl). The default is GitHub.
